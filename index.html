@@ -190,7 +190,7 @@ button {
 
 <body>
 
-<audio autoplay loop>
+<audio id="music" loop>
   <source src="Rendy Pandugo - Hampir Sempurna Video Lirik.mp3" type="audio/mpeg">
 </audio>
 
@@ -308,6 +308,7 @@ function blowCandle(){
   const smoke=document.createElement('div');
   smoke.className='smoke';
   document.querySelector('.cake-real').appendChild(smoke);
+  document.getElementById("music").play();
 }
 
 function goNext(){ show('slide1'); }
