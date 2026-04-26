@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Sayang 🤍</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(#ffd1dc, #ff8fc4);
+  overflow: hidden;
+}
+
+/* LOVE */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  color: rgba(255,255,255,0.6);
+  animation: floatUp linear forwards;
+}
+@keyframes floatUp {
+  from { transform: translateY(0) scale(0.5); opacity: 0; }
+  20% { opacity: 1; }
+  to { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+}
+
+/* SCREEN */
+.screen {
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.active { display: flex; }
+
+/* BUTTON */
+.btn-group {
+  display: flex;
+  gap: 12px;
+}
+button {
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: none;
+  background: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* CAKE */
+.cake-real {
+  position: relative;
+  width: 220px;
+  height: 180px;
+}
+
+/* LAYER */
+.layer {
+  position: absolute;
+  width: 100%;
+  border-radius: 20px;
+}
+.layer.bottom {
+  bottom: 0;
+  height: 70px;
+  background: #ff6fa5;
+  box-shadow: inset 0 -10px #e0558d;
+}
+.layer.top {
+  bottom: 60px;
+  height: 50px;
+  width: 180px;
+  left: 20px;
+  background: #ff85b5;
+}
+
+/* SELAI */
+.jam {
+  position: absolute;
+  bottom: 95px;
+  left: 25px;
+  width: 170px;
+  height: 15px;
+  background: #ff3d5a;
+  border-radius: 10px;
+}
+
+/* STRAWBERRY */
+.strawberry {
+  position: absolute;
+  bottom: 110px;
+  left: 70px;
+  width: 18px;
+  height: 18px;
+  background: red;
+  border-radius: 50%;
+}
+.strawberry::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 4px;
+  width: 10px;
+  height: 6px;
+  background: green;
+  border-radius: 50%;
+}
+.strawberry.s2 { left: 110px; }
+
+/* LILIN */
+.candle {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 40px;
+  background: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 5px,
+    #ff6fa5 5px,
+    #ff6fa5 10px
+  );
+  border-radius: 5px;
+}
+
+/* API */
+.flame {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 20px;
+  background: radial-gradient(circle, yellow, orange, red);
+  border-radius: 50%;
+  animation: flicker 0.15s infinite alternate;
+  box-shadow: 0 0 15px orange, 0 0 30px red;
+}
+@keyframes flicker {
+  from { transform: translateX(-50%) scale(1); }
+  to { transform: translateX(-50%) scale(1.3); }
+}
+
+/* SMOKE */
+.smoke {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: rgba(200,200,200,0.6);
+  border-radius: 50%;
+  animation: smokeUp 2s forwards;
+}
+@keyframes smokeUp {
+  from { opacity: 0.8; transform: translateX(-50%) translateY(0); }
+  to { opacity: 0; transform: translateX(-50%) translateY(-80px); }
+}
+
+/* SLIDE */
+.frame {
+  width: 260px;
+  height: 260px;
+  border-radius: 20px;
+  border: 3px dashed white;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-text {
+  color: white;
+  width: 85%;
+  font-size: 17px;
+  line-height: 1.7;
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+setInterval(()=>{
+  const h = document.createElement('div');
+  h.className = 'heart';
+  h.innerHTML = '❤';
+  h.style.left = Math.random()*100+'vw';
+  h.style.fontSize = (Math.random()*25+15)+'px';
+  h.style.animationDuration = (Math.random()*3+4)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7000);
+},300);
+</script>
+
+<!-- CAKE -->
+<div id="cake" class="screen active">
+  <div class="cake-real">
+
+    <div class="candle">
+      <div id="flame" class="flame"></div>
+    </div>
+
+    <div class="strawberry"></div>
+    <div class="strawberry s2"></div>
+
+    <div class="layer top"></div>
+    <div class="jam"></div>
+    <div class="layer bottom"></div>
+
+  </div>
+
+  <p style="color:white">Happy Birthday sayangku...🥳 Tiup lilinnya ya sayang 🤍</p>
+
+  <div class="btn-group">
+    <button onclick="blowCandle()">Tiup Lilin</button>
+    <button onclick="goNext()">Selanjutnya</button>
+  </div>
+</div>
+
+<!-- SLIDES -->
+<div id="slide1" class="screen">
+  <div class="frame"><img src="foto1.jpg"></div>
+  <div class="slide-text" id="text1"></div>
+  <button onclick="next(2)">Lanjut</button>
+</div>
+
+<div id="slide2" class="screen">
+  <div class="frame"><img src="foto2.jpg"></div>
+  <div class="slide-text" id="text2"></div>
+  <button onclick="next(3)">Lanjut</button>
+</div>
+
+<div id="slide3" class="screen">
+  <div class="frame"><img src="foto3.jpg"></div>
+  <div class="slide-text" id="text3"></div>
+  <button onclick="next(4)">Lanjut</button>
+</div>
+
+<div id="slide4" class="screen">
+  <div class="frame"><img src="foto4.jpg"></div>
+  <div class="slide-text" id="text4"></div>
+  <button onclick="next(5)">Lanjut</button>
+</div>
+
+<div id="slide5" class="screen">
+  <div class="frame"><img src="foto5.jpg"></div>
+  <div class="slide-text" id="text5"></div>
+  <button onclick="next(6)">Lanjut</button>
+</div>
+
+<div id="slide6" class="screen">
+  <div class="frame"><img src="foto6.jpg"></div>
+  <div class="slide-text" id="text6"></div>
+  <button onclick="backHome()">Kembali ke Awal</button>
+</div>
+
+<script>
+const messages = [
+"Selamat ulang tahun ya, sayang 🤍 Hari ini kamu genap 23 tahun, dan aku cuma mau bilang… aku bersyukur banget dunia menghadirkan kamu di hidupku.😊🤍",
+"Terima kasih sudah jadi seseorang yang selalu ada, yang sabar, yang tetap bertahan meskipun kadang keadaan nggak selalu mudah.😔",
+"Aku tahu kamu punya banyak hal yang kamu pendam, banyak lelah yang mungkin nggak selalu kamu ceritakan… tapi kamu tetap kuat, tetap jalan.🤗",
+"Di umur kamu yang sekarang, aku nggak minta kamu jadi sempurna. Aku cuma berharap kamu selalu diberi kesehatan, kebahagiaan, dan ketenangan.☺️",
+"Kalau suatu hari kamu capek, kamu ingat ya… kamu nggak sendirian. Aku di sini, selalu ada buat kamu, dalam keadaan apapun.😌🤍",
+"Sekali lagi, selamat ulang tahun, sayang. Terima kasih sudah lahir, dan terima kasih sudah memilih tetap ada di hidupku sampai hari ini, I love u so much ayang.😘🥰😍"
+];
+
+function typeText(id, text, speed=40){
+  let i=0;
+  const el=document.getElementById(id);
+  el.innerHTML="";
+  function typing(){
+    if(i<text.length){
+      el.innerHTML+=text.charAt(i);
+      i++;
+      setTimeout(typing,speed);
+    }
+  }
+  typing();
+}
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  if(id.startsWith("slide")){
+    let num=id.replace("slide","");
+    typeText("text"+num, messages[num-1]);
+  }
+}
+
+function blowCandle(){
+  document.getElementById('flame').style.display='none';
+  const smoke=document.createElement('div');
+  smoke.className='smoke';
+  document.querySelector('.cake-real').appendChild(smoke);
+}
+
+function goNext(){ show('slide1'); }
+function next(n){ show('slide'+n); }
+function backHome(){ show('cake'); }
+</script>
+
+</body>
+</html>
