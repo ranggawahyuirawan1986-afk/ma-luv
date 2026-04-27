@@ -31,11 +31,14 @@ body {
 .screen {
   display: none;
   height: 100vh;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   text-align: center;
-  padding-bottom: 60px;
+
+  justify-content: flex-start; /* penting */
+  align-items: center;
+
+  padding: 30px 20px;
+  box-sizing: border-box;
 }
   
 .active { display: flex; }
@@ -220,6 +223,27 @@ button {
 .screen button {
   margin-top: 15px;
 }
+
+  .content {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slide-text {
+  background: rgba(0,0,0,0.45);
+  padding: 15px;
+  border-radius: 12px;
+
+  min-height: 120px;
+  width: 100%;
+
+  margin-top: 15px;
+  box-sizing: border-box;
+}
+  
 </style>
 </head>
 
@@ -269,38 +293,50 @@ setInterval(()=>{
 
 <!-- SLIDES -->
 <div id="slide1" class="screen">
-  <div class="frame"><img src="foto1.jpg"></div>
-  <div class="slide-text" id="text1"></div>
+  <div class="content">
+    <div class="frame"><img src="foto1.jpg"></div>
+    <div class="slide-text" id="text1"></div>
+  </div>
   <button onclick="next(2)">Lanjut</button>
 </div>
 
 <div id="slide2" class="screen">
-  <div class="frame"><img src="IMG-20251127-WA0030.jpg"></div>
-  <div class="slide-text" id="text2"></div>
+  <div class="content">
+    <div class="frame"><img src="IMG-20251127-WA0030.jpg"></div>
+    <div class="slide-text" id="text2"></div>
+  </div>
   <button onclick="next(3)">Lanjut</button>
 </div>
 
 <div id="slide3" class="screen">
-  <div class="frame"><img src="foto3.jpg"></div>
-  <div class="slide-text" id="text3"></div>
+  <div class="content">
+    <div class="frame"><img src="foto3.jpg"></div>
+    <div class="slide-text" id="text3"></div>
+  </div>
   <button onclick="next(4)">Lanjut</button>
 </div>
 
 <div id="slide4" class="screen">
-  <div class="frame"><img src="IMG-20251127-WA0027.jpg"></div>
-  <div class="slide-text" id="text4"></div>
+  <div class="content">
+    <div class="frame"><img src="IMG-20251127-WA0027.jpg"></div>
+    <div class="slide-text" id="text4"></div>
+  </div>
   <button onclick="next(5)">Lanjut</button>
 </div>
 
 <div id="slide5" class="screen">
-  <div class="frame"><img src="IMG-20251213-WA0022.jpg"></div>
-  <div class="slide-text" id="text5"></div>
+  <div class="content">
+    <div class="frame"><img src="IMG-20251213-WA0022.jpg"></div>
+    <div class="slide-text" id="text5"></div>
+  </div>
   <button onclick="next(6)">Lanjut</button>
 </div>
 
 <div id="slide6" class="screen">
-  <div class="frame"><img src="IMG-20250407-WA0027.jpg"></div>
-  <div class="slide-text" id="text6"></div>
+  <div class="content">
+    <div class="frame"><img src="IMG-20250407-WA0027.jpg"></div>
+    <div class="slide-text" id="text6"></div>
+  </div>
   <button onclick="backHome()">Kembali ke Awal</button>
   <button onclick="stopMusic()">Tutup Cerita Ini 🤍</button>
 </div>
