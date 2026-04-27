@@ -267,6 +267,7 @@ setInterval(()=>{
   <div class="frame"><img src="IMG-20250407-WA0027.jpg"></div>
   <div class="slide-text" id="text6"></div>
   <button onclick="backHome()">Kembali ke Awal</button>
+  <button onclick="stopMusic()">Tutup Cerita Ini 🤍</button>
 </div>
 
 <script>
@@ -314,6 +315,23 @@ function blowCandle(){
 function goNext(){ show('slide1'); }
 function next(n){ show('slide'+n); }
 function backHome(){ show('cake'); }
+  
+  function stopMusic(){
+  const music = document.getElementById("music");
+  let vol = music.volume;
+
+  const fade = setInterval(() => {
+    if(vol > 0.05){
+      vol -= 0.05;
+      music.volume = vol;
+    } else {
+      music.pause();
+      music.currentTime = 0;
+      music.volume = 1;
+      clearInterval(fade);
+    }
+  }, 100);
+  }
 </script>
 
 </body>
