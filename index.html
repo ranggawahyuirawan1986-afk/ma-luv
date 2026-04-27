@@ -191,7 +191,35 @@ button {
   #slide6 button {
   margin-top: 10px;
   }
-  
+  /* BIAR LAYOUT SLIDE STABIL */
+.screen {
+  position: relative;
+  justify-content: flex-start;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* FRAME FOTO TETAP DI ATAS */
+.frame {
+  flex-shrink: 0;
+}
+
+/* BOX PESAN HITAM TRANSPARAN */
+.slide-text {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 15px 18px;
+  border-radius: 12px;
+
+  margin-top: 15px;
+
+  min-height: 120px;   /* ini penting biar ga naik turun */
+  overflow-y: auto;
+}
+
+/* TOMBOL BIAR RAPI */
+.screen button {
+  margin-top: 15px;
+}
 </style>
 </head>
 
